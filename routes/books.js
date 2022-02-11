@@ -19,7 +19,12 @@ router.get("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
   try {
     if (Array.isArray(req.body)) books.push(...req.body);
-    else if (Object.keys(req.body).length !== 0) books.push(req.body);
+    else if (Object.keys(req.body).length !== 0) {
+      req.body.id = books.length
+        ? Math.max(...books.map((book) => book.id)) + 1
+        : 1;
+      books.push(req.body);
+    }
 
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json");
