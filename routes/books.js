@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
     res.setHeader("Content-Type", "application/json");
     res.json(books);
   } catch (error) {
-    res.statusCode = 400;
+    res.statusCode = 500;
     res.send(error);
   }
 });
@@ -30,7 +30,7 @@ router.post("/", (req, res, next) => {
     res.setHeader("Content-Type", "application/json");
     res.json(books);
   } catch (error) {
-    res.statusCode = 400;
+    res.statusCode = 500;
     res.send(error);
   }
 });
@@ -48,7 +48,7 @@ router.put("/:id", (req, res, next) => {
     res.setHeader("Content-Type", "application/json");
     res.json(books);
   } catch (error) {
-    res.statusCode = 400;
+    res.statusCode = 500;
     res.send(error);
   }
 });
@@ -66,7 +66,7 @@ router.delete("/:id", (req, res, next) => {
     res.setHeader("Content-Type", "application/json");
     res.json(books);
   } catch (error) {
-    res.statusCode = 400;
+    res.statusCode = 500;
     res.send(error);
   }
 });
